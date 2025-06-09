@@ -26,7 +26,32 @@ class Person(db.Model):
     name: Mapped[str] = mapped_column(String(100), unique=True, nullable=False)
     gender: Mapped[str] = mapped_column(String(100),nullable =False)
     eye_color: Mapped[str] = mapped_column(String(40), nullable= False)
-    
+
+    Plannet_id: Mapped[int] = mapped_column(db.ForeignKey("planet.id"))
+    vehicle_id: Mapped[int] = mapped_column(db.ForeignKey("vehicle.id"))
+
+
+class Plannet(db.Model):
+    __tablename__ = 'plannet'
+    id: Mapped[int] = mapped_column(primary_key=True)
+    name: Mapped[str] = mapped_column(String(100), unique=True, nullable=False)
+    gender: Mapped[str] = mapped_column(String(100),nullable =False)
+    eye_color: Mapped[str] = mapped_column(String(40), nullable= False)
+
+
+class Vehicle(db.Model):
+    __tablename__ = 'vehicle'
+    id: Mapped[int] = mapped_column(primary_key=True)
+    name: Mapped[str] = mapped_column(String(100), unique=True, nullable=False)
+    model: Mapped[str] = mapped_column(String(100), nullable = False)
+
+
+
+
+
+
+
+
 
 
 
