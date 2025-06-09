@@ -17,3 +17,19 @@ class User(db.Model):
             "email": self.email,
             # do not serialize the password, its a security breach
         }
+
+
+
+class Person(db.Model):
+    __tablename__ = 'person'
+    id: Mapped[int] = mapped_column(primary_key=True)
+    name: Mapped[str] = mapped_column(String(100), unique=True, nullable=False)
+    gender: Mapped[str] = mapped_column(String(100),nullable =False)
+    eye_color: Mapped[str] = mapped_column(String(40), nullable= False)
+    
+
+
+
+    
+
+   
